@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import { IoMdAdd } from "react-icons/io";
+import { toast } from "react-toastify";
 
 import {
   createProfileRequest,
@@ -29,6 +30,7 @@ export default function ListStudents() {
         setStudents(response.data);
       } catch (err) {
         console.tron.log(err);
+        toast.info("Erro no carregamento dos alunos.");
       }
     }
 
