@@ -20,6 +20,7 @@ export const Content = styled.div`
     div {
       display: flex;
       border-right: 1px solid #ccc;
+      align-items: center;
 
       img {
         width: 45px;
@@ -28,6 +29,7 @@ export const Content = styled.div`
       h1 {
         color: #ee4d64;
         margin: 0 30px 0 12px;
+        font-size: 15px;
       }
     }
 

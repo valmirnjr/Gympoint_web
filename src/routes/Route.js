@@ -6,6 +6,7 @@ import AuthLayout from "~/pages/_layouts/auth";
 import DefaultLayout from "~/pages/_layouts/default";
 
 import { store } from "~/store/index";
+import api from "~/services/api";
 
 export default function RouteWrapper({
   component: Component,
@@ -13,6 +14,10 @@ export default function RouteWrapper({
   ...rest
 }) {
   const { signed } = store.getState().auth;
+
+  const { token } = store.getState().auth;
+
+  api.defaults.headers.Authorization = token ? `Bearer ${token}` : null;
 
   if (!signed && !isPublic) {
     return <Redirect to="/" />;

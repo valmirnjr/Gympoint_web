@@ -1,11 +1,20 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 
 import { Container, Content } from "./styles";
 
 import logo from "~/assets/logo.svg";
 
+import { signOut } from "~/store/modules/auth/actions";
+
 export default function Header() {
+  const dispatch = useDispatch();
+
+  function handleSignOut() {
+    dispatch(signOut());
+  }
+
   return (
     <Container>
       <Content>
@@ -32,7 +41,9 @@ export default function Header() {
 
         <aside>
           <strong>Diego Fernandes</strong>
-          <button type="submit">sair do sistema</button>
+          <button type="button" onClick={handleSignOut}>
+            Sair do sistema
+          </button>
         </aside>
       </Content>
     </Container>
