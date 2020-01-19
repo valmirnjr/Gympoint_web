@@ -37,8 +37,8 @@ export default function ListStudents() {
     loadStudents();
   }, [refresh]);
 
-  function handleEdit(studentId) {
-    dispatch(createProfileRequest(studentId));
+  function handleEdit(student) {
+    dispatch(createProfileRequest(student));
   }
 
   function handleCreateStudent() {
@@ -80,7 +80,7 @@ export default function ListStudents() {
                 <div className="age">{student.age}</div>
               </td>
               <td>
-                <button type="button" onClick={() => handleEdit(student.id)}>
+                <button type="button" onClick={() => handleEdit(student)}>
                   <Link to="/edit/students">editar</Link>
                 </button>
                 <button type="button" onClick={() => handleDelete(student.id)}>

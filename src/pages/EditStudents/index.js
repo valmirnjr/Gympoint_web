@@ -20,7 +20,6 @@ export default function EditStudents() {
 
   function handleGoBack() {
     history.goBack();
-    dispatch(deleteProfile());
   }
 
   function handleSubmit(data) {
@@ -59,7 +58,7 @@ export default function EditStudents() {
           <div>
             <div>
               <strong>Idade</strong>
-              <Input name="age" type="date" />
+              <Input name="age" type="text" />
             </div>
 
             <div>
