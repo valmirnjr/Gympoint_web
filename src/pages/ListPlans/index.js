@@ -7,13 +7,15 @@ import { toast } from "react-toastify";
 
 import api from "~/services/api";
 
+import { editRequest, deleteRequest } from "~/store/modules/plan/actions";
+
 import { Container, PlansTable } from "./styles";
 
 import search from "~/assets/search.svg";
 
 export default function ListPlans() {
   const dispatch = useDispatch();
-  const refresh = useSelector(state => state.student.refresh);
+  const refresh = useSelector(state => state.plan.refresh);
 
   const [plans, setPlans] = useState([]);
 
@@ -30,9 +32,13 @@ export default function ListPlans() {
     loadPlans();
   }, [refresh]);
 
-  function handleEdit(planId) {}
+  function handleEdit(plan) {
+    dispatch(editRequest(plan));
+  }
 
-  function handleDelete(planId) {}
+  function handleDelete(planId) {
+    dispatch(deleteRequest(planId));
+  }
 
   return (
     <Container>
@@ -64,7 +70,7 @@ export default function ListPlans() {
               </td>
               <td className="price">R${plan.price},00</td>
               <td>
-                <button type="button" onClick={() => handleEdit(plan.id)}>
+                <button type="button" onClick={() => handleEdit(plan)}>
                   <Link to="/edit/plans">editar</Link>
                 </button>
                 <button type="button" onClick={() => handleDelete(plan.id)}>
