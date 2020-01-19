@@ -4,11 +4,7 @@ import { toast } from "react-toastify";
 import api from "~/services/api";
 import history from "~/services/history";
 
-import {
-  updateProfileSuccess,
-  createStudentSuccess,
-  deleteStudentSuccess,
-} from "./actions";
+import { updateProfileSuccess, deleteStudentSuccess } from "./actions";
 
 export function* updateProfile({ payload }) {
   try {
@@ -44,11 +40,9 @@ export function* createStudent({ payload }) {
       height,
     };
 
-    const response = yield call(api.post, "students", profile);
+    yield call(api.post, "students", profile);
 
     toast.success("Aluno cadastrado com sucesso.");
-
-    yield put(createStudentSuccess(response.data));
 
     history.push("/list/students");
   } catch (err) {

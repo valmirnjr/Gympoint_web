@@ -39,13 +39,6 @@ export function createStudentRequest(data) {
   };
 }
 
-export function createStudentSuccess(profile) {
-  return {
-    type: "@student/CREATE_STUDENT_SUCCESS",
-    payload: { profile },
-  };
-}
-
 export function createStudentFailure() {
   return {
     type: "@student/CREATE_STUDENT_FAILURE",

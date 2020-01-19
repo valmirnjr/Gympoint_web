@@ -16,10 +16,6 @@ export default function student(state = INITIAL_STATE, action) {
         draft.profile = {};
         break;
       }
-      case "@student/CREATE_STUDENT_SUCCESS": {
-        draft.profile = action.payload.profile;
-        break;
-      }
       case "@student/DELETE_STUDENT_SUCCESS": {
         draft.refresh = !draft.refresh;
         break;
