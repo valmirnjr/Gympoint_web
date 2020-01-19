@@ -1,7 +1,7 @@
-export function createProfileRequest(studentId) {
+export function createProfileRequest(student) {
   return {
     type: "@student/CREATE_PROFILE_REQUEST",
-    payload: { studentId },
+    payload: { student },
   };
 }
 

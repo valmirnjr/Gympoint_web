@@ -5,29 +5,10 @@ import api from "~/services/api";
 import history from "~/services/history";
 
 import {
-  createProfileSuccess,
   updateProfileSuccess,
   createStudentSuccess,
   deleteStudentSuccess,
 } from "./actions";
-
-export function* createProfile({ payload }) {
-  try {
-    const { studentId } = payload;
-
-    const response = yield call(api.get, `students?id=${studentId}`);
-
-    /**
-     * O estudante encontrado vem em um array com um único objeto. Dessa forma,
-     * profile contém simplesmente um objeto.
-     */
-    const profile = response.data[0];
-
-    yield put(createProfileSuccess(profile));
-  } catch (err) {
-    toast.error("Erro no carregamento da página.");
-  }
-}
 
 export function* updateProfile({ payload }) {
   try {
@@ -90,7 +71,6 @@ export function* deleteStudent({ payload }) {
 }
 
 export default all([
-  takeLatest("@student/CREATE_PROFILE_REQUEST", createProfile),
   takeLatest("@student/UPDATE_PROFILE_REQUEST", updateProfile),
   takeLatest("@student/CREATE_STUDENT_REQUEST", createStudent),
   takeLatest("@student/DELETE_STUDENT_REQUEST", deleteStudent),

@@ -8,10 +8,6 @@ const INITIAL_STATE = {
 export default function student(state = INITIAL_STATE, action) {
   return produce(state, draft => {
     switch (action.type) {
-      case "@student/CREATE_PROFILE_SUCCESS": {
-        draft.profile = action.payload.profile;
-        break;
-      }
       case "@student/UPDATE_PROFILE_SUCCESS": {
         draft.profile = action.payload.profile;
         break;
@@ -26,6 +22,10 @@ export default function student(state = INITIAL_STATE, action) {
       }
       case "@student/DELETE_STUDENT_SUCCESS": {
         draft.refresh = !draft.refresh;
+        break;
+      }
+      case "@student/CREATE_PROFILE_REQUEST": {
+        draft.profile = action.payload.student;
         break;
       }
       default:
