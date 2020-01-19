@@ -12,7 +12,7 @@ import {
 
 import history from "~/services/history";
 
-import { Container } from "./styles";
+import CreateLayout from "~/pages/_layouts/create";
 
 export default function CreateStudents() {
   const dispatch = useDispatch();
@@ -27,7 +27,7 @@ export default function CreateStudents() {
   }
 
   return (
-    <Container>
+    <CreateLayout>
       <Form onSubmit={handleSubmit}>
         <header>
           <strong>Cadastro de aluno</strong>
@@ -80,6 +80,6 @@ export default function CreateStudents() {
           </div>
         </main>
       </Form>
-    </Container>
+    </CreateLayout>
   );
 }
