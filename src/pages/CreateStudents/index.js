@@ -28,7 +28,7 @@ export default function CreateStudents() {
 
   return (
     <Container>
-      <Form /* initialData={profile} */ onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit}>
         <header>
           <strong>Cadastro de aluno</strong>
           <aside>

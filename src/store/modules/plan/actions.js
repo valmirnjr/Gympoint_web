@@ -31,3 +31,10 @@ export function updateSuccess(plan) {
     payload: { plan },
   };
 }
+
+export function createRequest(data) {
+  return {
+    type: "@plan/CREATE_REQUEST",
+    payload: { data },
+  };
+}

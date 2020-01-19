@@ -2,7 +2,9 @@ import { all, takeLatest, call, put } from "redux-saga/effects";
 import { toast } from "react-toastify";
 
 import { updateSuccess, deleteSuccess } from "./actions";
+
 import api from "~/services/api";
+import history from "~/services/history";
 
 export function* updateRequest({ payload }) {
   try {
@@ -38,7 +40,24 @@ export function* deleteRequest({ payload }) {
   }
 }
 
+export function* createRequest({ payload }) {
+  try {
+    const { title, duration, price } = payload.data;
+
+    const plan = { title, duration, price };
+
+    yield call(api.post, "plans", plan);
+
+    toast.success("Plano criado com sucesso!");
+
+    history.push("/list/plans");
+  } catch (err) {
+    toast.error("Erro na criação do novo plano.");
+  }
+}
+
 export default all([
   takeLatest("@plan/UPDATE_REQUEST", updateRequest),
   takeLatest("@plan/DELETE_REQUEST", deleteRequest),
+  takeLatest("@plan/CREATE_REQUEST", createRequest),
 ]);
