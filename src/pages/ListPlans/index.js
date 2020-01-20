@@ -11,8 +11,6 @@ import { editRequest, deleteRequest } from "~/store/modules/plan/actions";
 
 import { Container, PlansTable } from "./styles";
 
-import search from "~/assets/search.svg";
-
 export default function ListPlans() {
   const dispatch = useDispatch();
   const refresh = useSelector(state => state.plan.refresh);

@@ -7,7 +7,6 @@ import { Form, Input } from "@rocketseat/unform";
 import { createRequest } from "~/store/modules/plan/actions";
 import history from "~/services/history";
 
-// import { Container } from './styles';
 import CreateLayout from "~/pages/_layouts/create";
 
 export default function CreatePlans() {

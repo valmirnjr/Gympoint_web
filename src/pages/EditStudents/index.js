@@ -4,10 +4,7 @@ import { Form, Input } from "@rocketseat/unform";
 
 import { MdKeyboardArrowLeft, MdCheck } from "react-icons/md";
 
-import {
-  updateProfileRequest,
-  deleteProfile,
-} from "~/store/modules/student/actions";
+import { updateProfileRequest } from "~/store/modules/student/actions";
 
 import history from "~/services/history";
 
