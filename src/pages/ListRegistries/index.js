@@ -21,13 +21,13 @@ export default function ListRegistries() {
 
   const [registries, setRegistries] = useState([]);
 
-  const dateFormat = "dd 'de' MMMM 'de' yyyy";
-  const dateOptions = { locale: pt };
-
   useEffect(() => {
     async function loadRegistries() {
       try {
         const response = await api.get("registries");
+
+        const dateFormat = "dd 'de' MMMM 'de' yyyy";
+        const dateOptions = { locale: pt };
 
         const data = response.data.map(reg => ({
           startDate: format(parseISO(reg.start_date), dateFormat, dateOptions),
@@ -42,7 +42,7 @@ export default function ListRegistries() {
     }
 
     loadRegistries();
-  }, [dateOptions, refresh, registries]);
+  }, [refresh, registries]);
 
   function handleEdit(registry) {
     dispatch(editRequest(registry));
@@ -58,7 +58,7 @@ export default function ListRegistries() {
         <main>
           <strong>Gerenciando matrículas</strong>
           <aside>
-            <Link to="/create/plans">
+            <Link to="/create/registries">
               <IoMdAdd size={18} />
               <strong>CADASTRAR</strong>
             </Link>
@@ -95,7 +95,7 @@ export default function ListRegistries() {
                   </button>
                   <button
                     type="button"
-                    onClick={() => handleDelete(registry.id)}
+                    onClick={() => handleDelete(registry.student_id)}
                   >
                     apagar
                   </button>
